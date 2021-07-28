@@ -1,0 +1,72 @@
+@import url("https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@1,700&display=swap");
+
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.formulario-login {
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: auto;
+  }
+  
+  .formulario-login .checkbox {
+    font-weight: 400;
+    color: white;
+  }
+  
+  .formulario-login .form-group:focus-within {
+    z-index: 2;
+  }
+  
+  .formulario-login input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  
+  .formulario-login input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+  
+  main ::placeholder {
+    color: black;
+  }
+  
+  main h1 {
+    margin: auto;
+    text-align: center;
+    color: white;
+    font-family: "Chakra Petch" !important;
+  }
+  
+  main h1 span {
+    color: red;
+    font-size: larger;
+    text-transform: uppercase;
+  }
+  
+  main p {
+    color: white;
+    text-align: center;
+  }
+
+  .btn {
+    background: red;
+    text-transform: uppercase;
+  }
+  
+  .btn:hover {
+    background: rgb(128, 11, 11);
+  }
+
+  i {
+      color: red;
+  }
+
