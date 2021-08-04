@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import firebase from "../../config/firebase";
 import "firebase/auth";
 import "./newUser.css";
@@ -119,11 +120,11 @@ function NewUser() {
 
 
         <p className="mt-3">
-          Já tem uma <a href="#">conta?</a>
+          Já tem uma <Link to='/login'>conta?</Link>
         </p>
 
         {
-          carregando ? <div className="d-flex justify-content-center"><div class="spinner-border text-light" role="status"> <span class="sr-only"></span> </div></div>
+          carregando ? <div className="d-flex justify-content-center"><div className="spinner-border text-light" role="status"> <span className="sr-only"></span> </div></div>
           : <button type="button" className="mt-3 w-100 btn btn-lg text-white" onClick={cadastrar}>Cadastrar</button>
         }
 

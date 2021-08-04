@@ -1,0 +1,135 @@
+.container_imagem {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.sidebar {
+  z-index: 1;
+  top: 0;
+  background: rgb(48, 47, 47);
+  margin-top: 35px;
+  padding-top: 30px;
+  position: fixed;
+  left: 0;
+  width: 250px;
+  height: 100%;
+  transition: 0.5s;
+}
+
+.imgPerfil {
+  width: 100px;
+  height: 100px;
+  border-radius: 100px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container_imagem h4 {
+  color: white;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.sidebar #btnSidebarMenu {
+  color: white;
+  display: block;
+  box-sizing: border-box;
+  transition: 0.5s;
+  transition-property: background;
+  font-size: 50px;
+  text-align: center;
+}
+
+.sidebar #btnSidebarMenu:hover {
+  color: red;
+  cursor: pointer;
+}
+
+.sidebar a {
+  color: white;
+  display: block;
+  width: 100%;
+  line-height: 60px;
+  text-decoration: none;
+  padding-left: 40px;
+  box-sizing: border-box;
+  transition: 0.5s;
+  transition-property: background;
+  font-size: 20px;
+}
+
+.sidebar a:hover {
+  background: red;
+}
+
+.sidebar i {
+  padding: 10px;
+  font-size: 30px;
+}
+
+.sidebarEncolhida {
+  z-index: 1;
+  top: 0;
+  background: rgb(48, 47, 47);
+  margin-top: 35px;
+  padding-top: 30px;
+  position: fixed;
+  left: -185px;
+  width: 250px;
+  height: 100%;
+  transition: 0.5s;
+}
+
+.sidebarEncolhida #btnSidebarMenu {
+  color: white;
+  display: block;
+  line-height: 60px;
+  padding-left: 40px;
+  box-sizing: border-box;
+  transition: 0.5s;
+  transition-property: background;
+  font-size: 50px;
+  margin-left: 150px;
+  width: 100px;
+}
+
+.sidebarEncolhida #btnSidebarMenu:hover {
+  background-color: red;
+  cursor: pointer;
+}
+
+.sidebarEncolhida a {
+  color: white;
+  display: block;
+  line-height: 60px;
+  text-decoration: none;
+  padding-left: 40px;
+  box-sizing: border-box;
+  transition: 0.5s;
+  transition-property: background;
+  font-size: 20px;
+  margin-left: 150px;
+  width: 100px;
+}
+
+.sidebarEncolhida .container_imagem {
+  display: none;
+}
+
+.sidebarEncolhida a:hover {
+  background: red;
+}
+
+.sidebarEncolhida i {
+  padding: 10px;
+  font-size: 30px;
+}
+
+.sidebarEncolhida span {
+  display: none;
+}

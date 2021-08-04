@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './login.css';
+import { Link } from 'react-router-dom';
 
 import firebase from '../../config/firebase';
 import 'firebase/auth';
@@ -82,6 +83,8 @@ function Login() {
             </div>
           )}
         </div>
+        <Link to='cadastro' className="registrarLink">Criar uma conta<i className="bi bi-arrow-right-short"></i></Link>
+
       </form>
     </main>
   );

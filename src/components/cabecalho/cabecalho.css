@@ -1,0 +1,47 @@
+header {
+  z-index: 2;
+  position: fixed;
+  top: 0;
+  width: calc(100% - 0%);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.area_esquerda h3 {
+  font-family: "Chakra Petch" !important;
+  color: white;
+  margin: 0;
+}
+
+.area_esquerda span {
+  color: red;
+  text-transform: uppercase;
+}
+
+.btnSair {
+  padding: 5px;
+  background: red;
+  text-decoration: none !important;
+  border-radius: 2px;
+  font-size: 15px;
+  font-weight: 600;
+  color: white !important;
+  text-transform: uppercase;
+  font-family: "Chakra Petch" !important;
+  transition: 0.5s;
+  transition-property: background;
+}
+
+.btnSair:hover {
+  background: rgb(128, 11, 11);
+}
+
+
+
+
+
