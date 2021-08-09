@@ -10,7 +10,7 @@ function Home() {
             <div className="conteudo row justify-content-md-center">
                 <Sidebar/>
                 <Cabecalho />
-                <div className="cardsHosts mb-3">
+                <div className="cardsHosts col">
                     <div className="card text-center">
                         <div className="card-header h2">Hosts</div>
                         <div className="card-body">
@@ -42,7 +42,7 @@ function Home() {
                     </div>
                 </div>
 
-                <div className="cardsRelatorios">
+                <div className="cardsRelatorios col">
                     <div className="card text-center">
                         <div className="card-header h2">Relatórios</div>
                         <div className="card-body">

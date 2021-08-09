@@ -99,7 +99,7 @@
 }
 
 .sidebarEncolhida #btnSidebarMenu:hover {
-  background-color: red;
+  color: red;
   cursor: pointer;
 }
 

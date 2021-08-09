@@ -1,0 +1,46 @@
+main {
+  display: flex;
+}
+
+.formContato {
+  text-align: center;
+  background: url("../../assets/img/contact_back.webp") no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  overflow: auto;
+}
+
+.formContato button {
+  background: red;
+  align-self: center;
+  text-transform: uppercase;
+}
+
+.formContato button:hover {
+  background: rgb(128, 11, 11);
+}
+
+.formContato h2 {
+  font-family: "Chakra Petch" !important;
+  text-transform: uppercase;
+  text-shadow: 0 0 4px red;
+}
+
+.infoContato {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
+.infoContato i {
+  padding: 10px;
+  font-size: 30px;
+}
+
+.titleContato {
+  font-family: "Chakra Petch" !important;
+  text-shadow: 0 0 4px red;
+}

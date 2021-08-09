@@ -1,14 +1,18 @@
 import React, { useState } from 'react';
 import './login.css';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 import firebase from '../../config/firebase';
 import 'firebase/auth';
+import {useSelector, useDispatch} from 'react-redux';
 
 function Login() {
   const [email, setEmail] = useState();
   const [senha, setSenha] = useState();
   const [msgTipo, setMsgTipo] = useState();
+
+
+  const dispatch = useDispatch();
 
   function authenicate() {
     firebase
@@ -16,6 +20,7 @@ function Login() {
       .signInWithEmailAndPassword(email, senha)
       .then((resultado) => {
         setMsgTipo('ok');
+        dispatch({type: 'LOGIN', usuarioEmail: email})
       })
       .catch((erro) => {
         setMsgTipo('erro');
@@ -24,6 +29,14 @@ function Login() {
 
   return (
     <main className="formulario-Login">
+
+
+      {
+        useSelector(state => state.usuarioLogado > 0 ? <Redirect to ="/" /> : null)
+      }
+
+
+
       <form action="./dashboard.html">
         <h1 className="mb-3 fw-bold">
           pwn<span>Watcher</span>
