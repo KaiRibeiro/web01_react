@@ -8,6 +8,7 @@ import Login from './view/login';
 import NewUser from './view/newUser';
 import Dashboard from './view/dashboard';
 import Contato from './view/contato';
+import Hosts from './view/hosts';
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Route exact path='/login' component={Login}/>
         <Route exact path='/cadastro' component={NewUser}/>
         <Route exact path='/contato' component={Contato}/>
+        <Route exact path='/hosts' component={Hosts}/>
         <Route exact path='/' component={Dashboard}/>
       </Router>
     </Provider>
