@@ -11,7 +11,7 @@ function Sidebar() {
   }
 
     return (
-      <main>
+      <>
           <div className={encolhido ? "sidebarEncolhida border border-danger" : "sidebar border border-danger"}>
             <i className="bi bi-list" id="btnSidebarMenu" onClick={encolher}></i>
           <div className="container_imagem">
@@ -23,7 +23,7 @@ function Sidebar() {
           <Link to='relatorios'><i className="bi bi-clipboard"></i><span>Relatórios</span></Link>
           <Link to='contato'><i className="bi bi-envelope"></i><span>Contato</span></Link>
         </div>
-      </main>
+      </>
     )
 }
 

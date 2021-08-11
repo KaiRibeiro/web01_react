@@ -6,7 +6,7 @@ import Cabecalho from "../../components/cabecalho";
 
 function Contato() {
   return (
-    <main>
+    <>
       <div className="row justify-content-md-center">
         <Sidebar />
         <Cabecalho />
@@ -77,7 +77,7 @@ function Contato() {
           <span>atendimento@pwnwatcher.net</span>
         </div>
       </div>
-    </main>
+    </>
   );
 }
 
