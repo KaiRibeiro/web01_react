@@ -3,28 +3,18 @@ import "./hosts.css";
 import Sidebar from "../../components/sidebar";
 import Cabecalho from "../../components/cabecalho";
 import NewHost from "../../components/newHost";
+import HostsList from "../../components/hostslist";
 
 function Hosts() {
 
     return (
         <>
 
-
-            <div className="row justify-content-md-center">
+            <div className="cu">
                 <Sidebar />
                 <Cabecalho />
                 <NewHost/>
-                <h1>aaa</h1>
-                <h1>aaa</h1>
-                <h1>aaa</h1>
-                <h1>aaa</h1>
-                <h1>aaa</h1>
-                <h1>aaa</h1>
-                <h1>aaa</h1>
-                <h1>aaa</h1>
-                <h1>aaa</h1>
-                <h1>aaa</h1>
-
+                <HostsList/>
             </div>
 
         </>
