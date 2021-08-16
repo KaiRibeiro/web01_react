@@ -5,16 +5,15 @@ import Cabecalho from "../../components/cabecalho";
 import NewHost from "../../components/newHost";
 import HostsList from "../../components/hostslist";
 
-function Hosts() {
+function Hosts({ match }) {
 
     return (
         <>
-
-            <div className="cu">
+            <div>
                 <Sidebar />
                 <Cabecalho />
                 <NewHost/>
-                <HostsList/>
+                <HostsList param = {match.params.parametro}/>
             </div>
 
         </>

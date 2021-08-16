@@ -1,6 +1,5 @@
-import React, { useSate } from 'react';
+import React from 'react';
 import './dashboard.css';
-import { Link } from 'react-router-dom';
 import Sidebar from '../../components/sidebar'
 import Cabecalho from '../../components/cabecalho';
 

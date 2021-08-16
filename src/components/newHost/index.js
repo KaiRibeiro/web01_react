@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./newHost.css";
 import firebase from '../../config/firebase'
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import Modal from "react-bootstrap/Modal";
 

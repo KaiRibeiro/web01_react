@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 import "./contato.css";
-import { Link } from "react-router-dom";
 import Sidebar from "../../components/sidebar";
 import Cabecalho from "../../components/cabecalho";
 
@@ -8,6 +7,7 @@ function Contato() {
   return (
     <>
       <div className="row justify-content-md-center">
+
         <Sidebar />
         <Cabecalho />
 

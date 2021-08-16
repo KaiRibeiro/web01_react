@@ -1,0 +1,28 @@
+.hostTitle {
+    color: white;
+    font-family: "Chakra Petch" !important;
+}
+
+.descricao {
+    width: 50vh;
+}
+
+.descTitle {
+    font-family: "Chakra Petch" !important;
+}
+
+.vulnerabilidade {
+    width: 50vh;
+}
+
+.vulnTitle {
+    font-family: "Chakra Petch" !important;
+}
+
+.severidade {
+    text-transform: uppercase;
+}
+
+.lead {
+    text-decoration: underline;
+}

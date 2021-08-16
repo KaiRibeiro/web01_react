@@ -2,7 +2,7 @@ import React from "react";
 import "./hostOptions.css";
 
 
-function HostOptions() {
+function HostOptions({ id }) {
 
     return (
         <>
@@ -12,9 +12,8 @@ function HostOptions() {
                     <i className="bi bi-three-dots"></i>
                 </button>
                 <ul className="dropdown-menu" aria-labelledby="btnOpcoes">
-                    <li><a className="dropdown-item" href="#">Visualizar</a></li>
                     <li>
-                        <a className="dropdown-item" href="#">Editar</a>
+                        <a className="dropdown-item">Editar</a>
                     </li>
                     <li>
                         <a className="dropdown-item">Remover</a>

@@ -19,9 +19,9 @@ function Sidebar() {
             <h4>Kaique C.</h4>
           </div>
           <Link to='/'><i className="bi bi-columns"></i><span>Dashboard</span></Link>
-          <Link to='hosts'><i className="bi bi-laptop"></i><span>Hosts</span></Link>
-          <Link to='relatorios'><i className="bi bi-clipboard"></i><span>Relatórios</span></Link>
-          <Link to='contato'><i className="bi bi-envelope"></i><span>Contato</span></Link>
+          <Link to='/hosts/meus'><i className="bi bi-laptop"></i><span>Hosts</span></Link>
+          <Link to='/relatorios'><i className="bi bi-clipboard"></i><span>Relatórios</span></Link>
+          <Link to='/contato'><i className="bi bi-envelope"></i><span>Contato</span></Link>
         </div>
       </>
     )
