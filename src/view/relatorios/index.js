@@ -5,6 +5,7 @@ import Cabecalho from "../../components/cabecalho";
 import { useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import NewRelatorio from "../../components/newRelatorio";
+import RelatoriosList from "../../components/relatorioslist";
 
 function Relatorios({ match }) {
 
@@ -18,6 +19,7 @@ function Relatorios({ match }) {
                 <Sidebar />
                 <Cabecalho />
                 <NewRelatorio edit={false} />
+                <RelatoriosList param={match.params.parametro} />
             </div>
 
         </>

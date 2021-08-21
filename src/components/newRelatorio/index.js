@@ -15,31 +15,50 @@ function NewRelatorio({ id, edit }) {
 
 
     const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+
 
     const [msgTipo, setMsgTipo] = useState();
 
-    const [nomeHost, setNomeHost] = useState();
-    const [sistemaOp, setSistemaOp] = useState();
-    const [descricaoHost, setDescricaoHost] = useState();
-    const [vulnHost, setVulnHost] = useState();
-    const [descricaoVuln, setDescricaoVuln] = useState();
-    const [vulnSeveridade, setVulnSeveridade] = useState();
+    const [nomeRelatorio, setNomeRelatorio] = useState();
+    const [hostRelatorio, setHostRelatorio] = useState();
+    const [resuRelatorio, setResuRelatorio] = useState();
+    const [indiRelatorio, setindiRelatorio] = useState();
+    const [pesquisa] = useState('');
+    const [hosts, setHosts] = useState([]);
+
+
+
     const usuarioEmail = useSelector(state => state.usuarioEmail);
     const db = firebase.firestore();
 
 
+    var listaHosts = [];
+
+    function getHosts() {
+
+            firebase.firestore().collection('hosts').where('usuario', '==', usuarioEmail).get().then(async (resultado) => {
+                await resultado.docs.forEach(doc => {
+                    if (doc.data().nomeHost.indexOf(pesquisa) >= 0) {
+                        listaHosts.push({
+                            id: doc.id,
+                            ...doc.data()
+                        })
+                    }
+                })
+                setHosts(listaHosts);
+            })
+
+    };
 
 
-    function getHost() {
+
+    function getRelatorio() {
         setCarregando(1);
-        firebase.firestore().collection('hosts').doc(id).get().then((resultado) => {
-            setNomeHost(resultado.data().nomeHost);
-            setSistemaOp(resultado.data().sistemaOp);
-            setDescricaoHost(resultado.data().descricaoHost);
-            setVulnHost(resultado.data().vulnHost);
-            setDescricaoVuln(resultado.data().descricaoVuln);
-            setVulnSeveridade(resultado.data().vulnSeveridade);
+        firebase.firestore().collection('relatorios').doc(id).get().then((resultado) => {
+            setNomeRelatorio(resultado.data().nomeRelatorio);
+            setHostRelatorio(resultado.data().hostRelatorio);
+            setResuRelatorio(resultado.data().resuRelatorio);
+            setindiRelatorio(resultado.data().indiRelatorio);
         }).then(() => {
             setCarregando(0);
         }).catch(() => {
@@ -48,22 +67,26 @@ function NewRelatorio({ id, edit }) {
     }
 
     function abrirEditar() {
-        getHost();
+        getHosts();
+        getRelatorio();
+        setShow(true);
+    }
+
+    function abrirNormal() {
+        getHosts();
         setShow(true);
     }
 
 
     function editar() {
         setCarregando(1);
-        db.collection('hosts').doc(id).update({
-            nomeHost: nomeHost,
-            sistemaOp: sistemaOp,
-            descricaoHost: descricaoHost,
-            vulnHost: vulnHost,
-            descricaoVuln: descricaoVuln,
-            vulnSeveridade: vulnSeveridade,
+        db.collection('relatorios').doc(id).update({
+            nomeRelatorio: nomeRelatorio,
+            hostRelatorio: hostRelatorio,
+            resuRelatorio: resuRelatorio,
+            indiRelatorio: indiRelatorio,
             ultimaModificacao: new Date(),
-            status: 'Aberto',
+            status: 'Aguardando Geração',
             usuario: usuarioEmail
         }).then(() => {
             setCarregando(0);
@@ -80,14 +103,12 @@ function NewRelatorio({ id, edit }) {
     function cadastrar() {
         setCarregando(1);
         db.collection('relatorios').add({
-            nomeHost: nomeHost,
-            sistemaOp: sistemaOp,
-            descricaoHost: descricaoHost,
-            vulnHost: vulnHost,
-            descricaoVuln: descricaoVuln,
-            vulnSeveridade: vulnSeveridade,
+            nomeRelatorio: nomeRelatorio,
+            hostRelatorio: hostRelatorio,
+            resuRelatorio: resuRelatorio,
+            indiRelatorio: indiRelatorio,
             ultimaModificacao: new Date(),
-            status: 'Aberto',
+            status: 'Aguardando Geração',
             usuario: usuarioEmail
         }).then(() => {
             setCarregando(0);
@@ -111,7 +132,7 @@ function NewRelatorio({ id, edit }) {
                             Editar
                         </button>
                         :
-                        <button type="button" id="btnNovoHost" className="btn btn-lg text-white fw-bold" onClick={handleShow}>
+                        <button type="button" id="btnNovoHost" className="btn btn-lg text-white fw-bold" onClick={abrirNormal}>
                             + Novo Relatório
                         </button>
                 }
@@ -135,27 +156,31 @@ function NewRelatorio({ id, edit }) {
                                 <form>
                                     <div className="form-group mb-3">
                                         <label htmlffor="iptNomeRelatorio" className="fw-bold">Nome do Relatório<span className="text-danger"> *</span></label>
-                                        <input onChange={(e) => setNomeHost(e.target.value)} id="iptNomeRelatorio" type="text" className="form-control" placeholder="Exemplo Nome..." maxLength="40"
-                                            required value={nomeHost} />
+                                        <input onChange={(e) => setNomeRelatorio(e.target.value)} id="iptNomeRelatorio" type="text" className="form-control" placeholder="Exemplo Nome..." maxLength="40"
+                                            required value={nomeRelatorio} />
                                         <label htmlffor="iptNomeRelatorio" className="tmMax text-danger">Max. Caracteres 40</label>
                                     </div>
                                     <div className="form-group mb-3">
                                         <label htmlffor="selHost" className="fw-bold">Host</label>
-                                            <select onChange={(e) => setVulnHost(e.target.value)} className="form-select" id="selHost" defaultValue={vulnHost}>
+                                            <select onChange={(e) => setHostRelatorio(e.target.value)} className="form-select" id="selHost" defaultValue={hostRelatorio}>
                                                 <option disabled selected>Selecionar...</option>
-                                                <option>Host ...</option>
+                                                {
+                                                    hosts.map(item =>
+                                                        <option>{item.nomeHost}</option>
+                                                    )
+                                                }
                                             </select>
                                     </div>
                                     <div className="form-group mb-3">
                                         <label htmlffor="txtResuRelatorio" className="fw-bold">Resumo</label>
-                                        <textarea onChange={(e) => setDescricaoHost(e.target.value)} className="form-control" id="txtDescriHost" rows="3" maxLength="500"
-                                            placeholder="Resumo..." value={descricaoHost}></textarea>
+                                        <textarea onChange={(e) => setResuRelatorio(e.target.value)} className="form-control" id="txtDescriHost" rows="3" maxLength="500"
+                                            placeholder="Resumo..." value={resuRelatorio}></textarea>
                                         <label htmlffor="txtResuRelatorio" className="tmMax text-danger">Max. Caracteres 500</label>
                                     </div>
                                     <div className="form-group mb-3">
                                         <label htmlFor="txtIndica" className="fw-bold">Indicações</label>
-                                        <textarea onChange={(e) => setDescricaoVuln(e.target.value)} className="form-control" id="txtIndica" rows="3" maxLength="500"
-                                            placeholder="Indicações..." value={descricaoVuln}></textarea>
+                                        <textarea onChange={(e) => setindiRelatorio(e.target.value)} className="form-control" id="txtIndica" rows="3" maxLength="500"
+                                            placeholder="Indicações..." value={indiRelatorio}></textarea>
                                         <label htmlFor="txtDescriVuln" className="tmMax text-danger">Max. Caracteres 500</label>
                                     </div>
                                 </form>

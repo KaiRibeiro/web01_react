@@ -12,6 +12,7 @@ import Contato from './view/contato';
 import Hosts from './view/hosts';
 import HostDetalhes from './view/hostDetalhes';
 import Relatorios from './view/relatorios';
+import RelatorioDetalhes from './view/relatorioDetalhes';
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
           <Route path='/hostdetalhes/:idHost' component={HostDetalhes}/>
           <Route exact path='/relatorios' component={Relatorios}/>
           <Route path='/relatorios/:parametro' component={Relatorios}/>
+          <Route path='/relatoriodetalhes/:idRelatorio' component={RelatorioDetalhes}/>
         </Router>
       </PersistGate>
     </Provider>

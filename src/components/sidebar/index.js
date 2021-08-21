@@ -1,10 +1,13 @@
 import React, {useState} from 'react';
 import './sidebar.css'
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import perfil from '../../assets/img/usuario.webp'
 
 function Sidebar() {
   const [encolhido, setEncolhido] = useState();
+  const usuarioEmail = useSelector(state => state.usuarioEmail);
+
 
   function encolher() {
     setEncolhido(!encolhido);
@@ -16,7 +19,7 @@ function Sidebar() {
             <i className="bi bi-list" id="btnSidebarMenu" onClick={encolher}></i>
           <div className="container_imagem">
             <img src={perfil} className="imgPerfil" alt="Foto de perfil do Usuário" />
-            <h4>Kaique C.</h4>
+            <h4>{usuarioEmail}</h4>
           </div>
           <Link to='/'><i className="bi bi-columns"></i><span>Dashboard</span></Link>
           <Link to='/hosts/meus'><i className="bi bi-laptop"></i><span>Hosts</span></Link>
