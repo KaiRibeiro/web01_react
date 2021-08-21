@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import firebase from '../../config/firebase'
 import "./hostDetalhes.css";
 import Sidebar from "../../components/sidebar";
+import { useSelector } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import Cabecalho from "../../components/cabecalho";
 
 function HostDetalhes({ match }) {
@@ -13,10 +15,14 @@ function HostDetalhes({ match }) {
             setHost(resultado.data());
             setCarregando(0);
         })
-    });
+    }, [match]);
 
     return (
         <>
+
+            {
+                useSelector(state => state.usuarioLogado === 0 ? <Redirect to ="/login" /> : null)
+            }
 
             <div>
                 <Sidebar />

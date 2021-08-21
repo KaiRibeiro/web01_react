@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import "./newHost.css";
+import "./newRelatorio.css";
 import firebase from '../../config/firebase'
 import { useSelector } from 'react-redux';
 
 import Modal from "react-bootstrap/Modal";
 
-function NewHost({ id, edit }) {
+function NewRelatorio({ id, edit }) {
 
 
 
@@ -79,7 +79,7 @@ function NewHost({ id, edit }) {
 
     function cadastrar() {
         setCarregando(1);
-        db.collection('hosts').add({
+        db.collection('relatorios').add({
             nomeHost: nomeHost,
             sistemaOp: sistemaOp,
             descricaoHost: descricaoHost,
@@ -112,7 +112,7 @@ function NewHost({ id, edit }) {
                         </button>
                         :
                         <button type="button" id="btnNovoHost" className="btn btn-lg text-white fw-bold" onClick={handleShow}>
-                            + Novo Host
+                            + Novo Relatório
                         </button>
                 }
 
@@ -121,9 +121,9 @@ function NewHost({ id, edit }) {
                         <Modal.Title>
                             {
                                 edit ?
-                                    <h2 className="fw-bold">Editar Host</h2>
+                                    <h2 className="fw-bold">Editar Relatório</h2>
                                     :
-                                    <h2 className="fw-bold">Novo Host</h2>
+                                    <h2 className="fw-bold">Novo Relatório</h2>
                             }
                         </Modal.Title>
                     </Modal.Header>
@@ -134,49 +134,29 @@ function NewHost({ id, edit }) {
                             </div> :
                                 <form>
                                     <div className="form-group mb-3">
-                                        <label htmlffor="iptNomeHost" className="fw-bold">Nome do Host<span className="text-danger"> *</span></label>
-                                        <input onChange={(e) => setNomeHost(e.target.value)} id="iptNomeHost" type="text" className="form-control" placeholder="Exemplo Nome..." maxLength="40"
+                                        <label htmlffor="iptNomeRelatorio" className="fw-bold">Nome do Relatório<span className="text-danger"> *</span></label>
+                                        <input onChange={(e) => setNomeHost(e.target.value)} id="iptNomeRelatorio" type="text" className="form-control" placeholder="Exemplo Nome..." maxLength="40"
                                             required value={nomeHost} />
-                                        <label htmlffor="iptNomeHost" className="tmMax text-danger">Max. Caracteres 40</label>
+                                        <label htmlffor="iptNomeRelatorio" className="tmMax text-danger">Max. Caracteres 40</label>
                                     </div>
                                     <div className="form-group mb-3">
-                                        <label htmlffor="iptSoHost" className="fw-bold">Sistema Operacional<span className="text-danger"> *</span></label>
-                                        <input onChange={(e) => setSistemaOp(e.target.value)} id="iptSoHost" type="text" className="form-control" placeholder="Linux..." maxLength="40" required value={sistemaOp} />
-                                        <label htmlffor="iptSoHost" className="tmMax text-danger">Max. Caracteres 40</label>
+                                        <label htmlffor="selHost" className="fw-bold">Host</label>
+                                            <select onChange={(e) => setVulnHost(e.target.value)} className="form-select" id="selHost" defaultValue={vulnHost}>
+                                                <option disabled selected>Selecionar...</option>
+                                                <option>Host ...</option>
+                                            </select>
                                     </div>
                                     <div className="form-group mb-3">
-                                        <label htmlffor="txtDescriHost" className="fw-bold">Descrição</label>
+                                        <label htmlffor="txtResuRelatorio" className="fw-bold">Resumo</label>
                                         <textarea onChange={(e) => setDescricaoHost(e.target.value)} className="form-control" id="txtDescriHost" rows="3" maxLength="500"
-                                            placeholder="Descrição do host..." value={descricaoHost}></textarea>
-                                        <label htmlffor="txtDescriHost" className="tmMax text-danger">Max. Caracteres 500</label>
+                                            placeholder="Resumo..." value={descricaoHost}></textarea>
+                                        <label htmlffor="txtResuRelatorio" className="tmMax text-danger">Max. Caracteres 500</label>
                                     </div>
                                     <div className="form-group mb-3">
-                                        <label htmlffor="selVulne" className="fw-bold">Vulnerabilidade</label>
-                                        <select onChange={(e) => setVulnHost(e.target.value)} className="form-select" id="selVulne" defaultValue={vulnHost}>
-                                            <option disabled selected>Selecionar...</option>
-                                            <option>Software Desatualizado</option>
-                                            <option>Configuração Incorreta</option>
-                                            <option>Credencias Fracas</option>
-                                            <option>Phishing</option>
-                                            <option>Agente Interno</option>
-                                            <option>Outro</option>
-                                        </select>
-                                    </div>
-                                    <div className="form-group mb-3">
-                                        <label htmlFor="txtDescriVuln" className="fw-bold">Descrição da Vulnerabilidade</label>
-                                        <textarea onChange={(e) => setDescricaoVuln(e.target.value)} className="form-control" id="txtDescriVuln" rows="3" maxLength="500"
-                                            placeholder="Descrição Da Vulnerabilidade..." value={descricaoVuln}></textarea>
+                                        <label htmlFor="txtIndica" className="fw-bold">Indicações</label>
+                                        <textarea onChange={(e) => setDescricaoVuln(e.target.value)} className="form-control" id="txtIndica" rows="3" maxLength="500"
+                                            placeholder="Indicações..." value={descricaoVuln}></textarea>
                                         <label htmlFor="txtDescriVuln" className="tmMax text-danger">Max. Caracteres 500</label>
-                                    </div>
-                                    <div className="form-group mb-3">
-                                        <label htmlffor="selSev" className="fw-bold">Severidade da Vulnerabilidade</label>
-                                        <select onChange={(e) => setVulnSeveridade(e.target.value)} className="form-select" id="selSev" defaultValue={vulnSeveridade}>
-                                            <option disabled selected>Selecionar...</option>
-                                            <option className="bg-secondary">N/A</option>
-                                            <option className="bg-success">Baixa</option>
-                                            <option className="bg-warning">Média</option>
-                                            <option className="bg-danger">Alta</option>
-                                        </select>
                                     </div>
                                 </form>
                         }
@@ -194,4 +174,4 @@ function NewHost({ id, edit }) {
     )
 }
 
-export default NewHost;
+export default NewRelatorio;

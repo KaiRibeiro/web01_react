@@ -1,3 +1,9 @@
-.btnOpcoes {
-    
+.btnRemove {
+    color: black;
+    background: white;
+}
+
+.btnRemove:hover {
+    background: red;
+    color: white;
 }

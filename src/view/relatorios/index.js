@@ -1,13 +1,12 @@
 import React from "react";
-import "./hosts.css";
+import "./relatorios.css";
 import Sidebar from "../../components/sidebar";
 import Cabecalho from "../../components/cabecalho";
-import NewHost from "../../components/newHost";
-import HostsList from "../../components/hostslist";
 import { useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import NewRelatorio from "../../components/newRelatorio";
 
-function Hosts({ match }) {
+function Relatorios({ match }) {
 
     return (
         <>
@@ -18,12 +17,11 @@ function Hosts({ match }) {
             <div>
                 <Sidebar />
                 <Cabecalho />
-                <NewHost edit={false} />
-                <HostsList param={match.params.parametro} />
+                <NewRelatorio edit={false} />
             </div>
 
         </>
     )
 }
 
-export default Hosts;
+export default Relatorios;

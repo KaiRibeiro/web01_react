@@ -2,10 +2,19 @@ import React from 'react';
 import './dashboard.css';
 import Sidebar from '../../components/sidebar'
 import Cabecalho from '../../components/cabecalho';
+import { useSelector } from 'react-redux';
+import { Redirect } from 'react-router-dom';
+
+
 
 function Home() {
     return (
         <main>
+
+            {
+                useSelector(state => state.usuarioLogado === 0 ? <Redirect to ="/login" /> : null)
+            }
+
             <div className="conteudo row justify-content-md-center">
                 <Sidebar/>
                 <Cabecalho />
